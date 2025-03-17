@@ -21,6 +21,7 @@
     <uri id="User Entered Import Resolution" uri="../dependencies/CDO-Shapes-Time/dependencies/UCO/ontology/uco/victim/victim.ttl" name="https://ontology.unifiedcyberontology.org/uco/victim/1.3.0"/>
     <uri id="User Entered Import Resolution" uri="../dependencies/CDO-Shapes-Time/dependencies/UCO/ontology/uco/vocabulary/vocabulary.ttl" name="https://ontology.unifiedcyberontology.org/uco/vocabulary/1.3.0"/>
     <uri id="User Entered Import Resolution" uri="../dependencies/CDO-Shapes-Time/dependencies/time.ttl" name="http://www.w3.org/2006/time#2016"/>
+    <uri id="User Entered Import Resolution" uri="../dependencies/CDO-Shapes-Time/shapes/sh-time.ttl" name="http://example.org/shapes/sh-time"/>
     <uri id="User Entered Import Resolution" uri="../ontology/uco-time.ttl" name="http://example.org/ontology/uco-time"/>
     <uri id="User Entered Import Resolution" uri="sh-uco-time.ttl" name="http://example.org/shapes/sh-uco-time"/>
 </catalog>

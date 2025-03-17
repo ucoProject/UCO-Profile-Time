@@ -14,7 +14,7 @@
 	owl:imports <http://example.org/ontology/uco-time> ;
 	.
 
-drafting:intervalDuring-subjects-shape
+sh-uco-time:intervalDuring-subjects-shape
 	a sh:NodeShape ;
 	sh:not [
 		a sh:NodeShape ;

@@ -65,7 +65,7 @@ def test_disjointedness_symmetry() -> None:
             )
         )
         logging.info(
-            "This can be addressed by copying the following lines into uco-gufo.ttl.  Automated format-checking should handle syntactically normalizing them.\n%s"
+            "This can be addressed by copying the following lines into the profile Turtle file.  Automated format-checking should handle syntactically normalizing them.\n%s"
             % lines_to_copy_paste
         )
         raise

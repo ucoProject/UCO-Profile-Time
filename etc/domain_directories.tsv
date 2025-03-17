@@ -1,2 +1,1 @@
-https://example.org/	${top_srcdir}/ontology/
-https://ontology.unifiedcyberontology.org/	${top_srcdir}/dependencies/UCO/ontology/
+https://ontology.unifiedcyberontology.org/	${top_srcdir}/dependencies/CDO-Shapes-Time/dependencies/UCO/ontology/

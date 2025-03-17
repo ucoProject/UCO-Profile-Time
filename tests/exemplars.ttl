@@ -1,20 +1,43 @@
-# imports: http://example.org/ontology/uco-example
+# imports: http://example.org/ontology/uco-time
 
 @prefix drafting: <http://example.org/ontology/drafting/> .
 @prefix kb: <http://example.org/kb/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix uco-action: <https://ontology.unifiedcyberontology.org/uco/action/> .
 @prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.org/kb>
 	a owl:Ontology ;
 	rdfs:comment "This knowledge base instantiates each of the mapped classes and properties, so SHACL shapes can perform a review for inconsistencies in the mapping between UCO and the mapped ontology."@en ;
-	owl:imports <http://example.org/ontology/uco-example> ;
+	owl:imports <http://example.org/ontology/uco-time> ;
 	.
 
-kb:UcoObject-24cf6699-3cb6-47fa-9f62-c972b0971752
-	a uco-core:UcoObject ;
+kb:Action-1fd171bc-fa89-44d6-b785-f3a5b947c7a5
+	a uco-action:Action ;
+	uco-action:subaction kb:Action-294a8a80-0701-4bb5-b8e9-90e79a1c2bbe ;
+	.
+
+kb:Action-294a8a80-0701-4bb5-b8e9-90e79a1c2bbe
+	a uco-action:Action ;
+	drafting:intervalDuring kb:Action-1fd171bc-fa89-44d6-b785-f3a5b947c7a5 ;
+	.
+
+kb:Event-05c8d973-25f3-4390-9c2e-2c0af3fbfc44
+	a uco-core:Event ;
+	.
+
+kb:Perdurant-3ccac1ae-6d94-4675-869d-1c4e0a9f2547
+	a drafting:InstantaneousPerdurant ;
+	.
+
+kb:Perdurant-4a15f0b8-2bda-41bf-9c29-e304ed8715ab
+	a drafting:IntervalicPerdurant ;
+	.
+
+kb:Perdurant-599c259f-a25d-416d-b2de-52929861a5c7
+	a drafting:ProperIntervalicPerdurant ;
 	.
 

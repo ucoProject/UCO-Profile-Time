@@ -18,7 +18,7 @@ SHELL := /bin/bash
 
 top_srcdir := $(shell cd .. ; pwd)
 
-uco_srcdir := $(top_srcdir)/dependencies/UCO
+uco_srcdir := $(top_srcdir)/dependencies/CDO-Shapes-Time/dependencies/UCO
 
 profile_ttls := $(wildcard $(top_srcdir)/ontology/uco-*.ttl)
 

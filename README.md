@@ -2,7 +2,7 @@
 
 ![Repository Status](https://img.shields.io/badge/-exploratory-informational)
 
-This repository explores UCO under a usage profile assuming adoption of [Example](http://example.org/ontology).
+This repository explores UCO under a usage profile assuming adoption of [OWL-Time](https://www.w3.org/TR/2022/CRD-owl-time-20221115/)
 
 The CDO Profile development rationale and design is [here](https://cyberdomainontology.org/ontology/development/#profiles).
 

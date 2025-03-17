@@ -41,17 +41,18 @@ all: \
 # dependency on other profiles.
 .git_submodule_init_imports.done.log: \
   .gitmodules
-	# TODO - Initialize non-CDO submodule here.
+	git submodule update \
+	  --init \
+	  dependencies/CDO-Shapes-Time
+	$(MAKE) \
+	  --directory dependencies/CDO-Shapes-Time \
+	  .git_submodule_init.done.log
 	touch $@
 
 .git_submodule_init.done.log: \
   .git_submodule_init_imports.done.log
 	git submodule update \
 	  --init
-	$(MAKE) \
-	  --directory dependencies/UCO \
-	  .git_submodule_init.done.log \
-	  .lib.done.log
 	touch $@
 
 .venv.done.log: \

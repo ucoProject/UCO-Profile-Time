@@ -1,0 +1,25 @@
+# imports: http://example.org/ontology/uco-time
+
+@prefix drafting: <http://example.org/ontology/drafting/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix sh-uco-time: <http://example.org/shapes/sh-uco-time/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/shapes/sh-uco-time>
+	a owl:Ontology ;
+	rdfs:comment "This shapes file should be filled in for at least mapped classes and properties when the upstream ontology does not provide SHACL shapes, or when draft concepts are added to the profile ontology."@en ;
+	owl:imports <http://example.org/ontology/uco-time> ;
+	.
+
+drafting:intervalDuring-subjects-shape
+	a sh:NodeShape ;
+	sh:not [
+		a sh:NodeShape ;
+		sh:class drafting:InstantaneousPerdurant ;
+	] ;
+	sh:targetSubjectsOf drafting:intervalDuring ;
+	.
+

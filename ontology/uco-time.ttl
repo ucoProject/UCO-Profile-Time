@@ -1,0 +1,121 @@
+# imports: http://www.w3.org/2006/time#2016
+# imports: https://ontology.unifiedcyberontology.org/uco/uco/1.3.0
+
+@prefix drafting: <http://example.org/ontology/drafting/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix uco-action: <https://ontology.unifiedcyberontology.org/uco/action/> .
+@prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/ontology/uco-example>
+	a owl:Ontology ;
+	owl:imports
+		time:2016 ,
+		<https://ontology.unifiedcyberontology.org/uco/uco/1.3.0>
+		;
+	.
+
+drafting:InstantaneousPerdurant
+	a owl:Class ;
+	rdfs:subClassOf
+		drafting:Perdurant ,
+		[
+			a owl:Restriction ;
+			owl:onProperty owl:hasTime ;
+			owl:allValuesFrom time:Instant ;
+		]
+		;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	owl:disjointWith drafting:ProperIntervalicPerdurant ;
+	.
+
+drafting:IntervalicPerdurant
+	a owl:Class ;
+	rdfs:subClassOf
+		drafting:Perdurant ,
+		[
+			a owl:Restriction ;
+			owl:onProperty owl:hasTime ;
+			owl:allValuesFrom time:Interval ;
+		]
+		;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	.
+
+drafting:Perdurant
+	a owl:Class ;
+	rdfs:subClassOf uco-core:UcoObject ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/544> ;
+	.
+
+drafting:ProperIntervalicPerdurant
+	a owl:Class ;
+	rdfs:subClassOf
+		drafting:IntervalicPerdurant ,
+		[
+			a owl:Restriction ;
+			owl:onProperty owl:hasTime ;
+			owl:allValuesFrom time:ProperInterval ;
+		]
+		;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	owl:disjointWith drafting:InstantaneousPerdurant ;
+	.
+
+drafting:after
+	a owl:ObjectProperty ;
+	rdfs:comment "The subject is a perdurant that occurs after the object. If a perdurant P1 is after another perdurant P2, then the beginning of P1 is after the end of P2.  (Definition adapted from OWL-Time's after.)"@en ;
+	rdfs:domain drafting:Perdurant ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	rdfs:range drafting:Perdurant ;
+	rdfs:seeAlso time:after ;
+	.
+
+drafting:intervalDuring
+	a owl:ObjectProperty ;
+	rdfs:comment "If a proper-intervalic perdurant P1 is intervalDuring another proper-intervalic perdurant P2, then the beginning of P1 is after the beginning of P2, and the end of P1 is before the end of P2.  (Definition adapted from OWL-Time's intervalDuring.)"@en ;
+	rdfs:domain drafting:ProperIntervalicPerdurant ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	rdfs:range drafting:ProperIntervalicPerdurant ;
+	rdfs:seeAlso time:intervalDuring ;
+	.
+
+uco-action:Action
+	rdfs:subClassOf drafting:Perdurant ;
+	.
+
+uco-action:subaction
+	rdfs:subPropertyOf drafting:intervalDuring ;
+	.
+
+uco-core:Event
+	rdfs:subClassOf drafting:Perdurant ;
+	.
+
+[]
+	a owl:Axiom ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	owl:annotatedProperty rdfs:subClassOf ;
+	owl:annotatedSource uco-action:Action ;
+	owl:annotatedTarget drafting:Perdurant ;
+	.
+
+[]
+	a owl:Axiom ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	owl:annotatedProperty rdfs:subClassOf ;
+	owl:annotatedSource uco-core:Event ;
+	owl:annotatedTarget drafting:Perdurant ;
+	.
+
+[]
+	a owl:Axiom ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	owl:annotatedProperty rdfs:subPropertyOf ;
+	owl:annotatedSource uco-action:subaction ;
+	owl:annotatedTarget drafting:intervalDuring ;
+	.
+

@@ -1,4 +1,5 @@
 # imports: http://example.org/ontology/uco-time
+# imports: http://example.org/shapes/sh-time
 
 @prefix drafting: <http://example.org/ontology/drafting/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -11,7 +12,10 @@
 <http://example.org/shapes/sh-uco-time>
 	a owl:Ontology ;
 	rdfs:comment "This shapes file should be filled in for at least mapped classes and properties when the upstream ontology does not provide SHACL shapes, or when draft concepts are added to the profile ontology."@en ;
-	owl:imports <http://example.org/ontology/uco-time> ;
+	owl:imports
+		<http://example.org/ontology/uco-time> ,
+		<http://example.org/shapes/sh-time>
+		;
 	.
 
 sh-uco-time:intervalDuring-subjects-shape

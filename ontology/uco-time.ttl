@@ -10,7 +10,7 @@
 @prefix uco-core: <https://ontology.unifiedcyberontology.org/uco/core/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://example.org/ontology/uco-example>
+<http://example.org/ontology/uco-time>
 	a owl:Ontology ;
 	owl:imports
 		time:2016 ,

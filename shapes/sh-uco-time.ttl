@@ -7,6 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix sh-uco-time: <http://example.org/shapes/sh-uco-time/> .
+@prefix uco-action: <https://ontology.unifiedcyberontology.org/uco/action/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.org/shapes/sh-uco-time>
@@ -24,6 +25,10 @@ sh-uco-time:intervalDuring-subjects-shape
 		a sh:NodeShape ;
 		sh:class drafting:InstantaneousPerdurant ;
 	] ;
-	sh:targetSubjectsOf drafting:intervalDuring ;
+	sh:targetSubjectsOf
+		drafting:intervalDuring ,
+		uco-action:phase ,
+		uco-action:subaction
+		;
 	.
 

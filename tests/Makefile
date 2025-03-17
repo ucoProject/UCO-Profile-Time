@@ -43,7 +43,8 @@ all: \
 .pytest.done.log: \
   exemplars.ttl \
   monolithic.ttl \
-  test_exemplar_coverage.py
+  test_exemplar_coverage.py \
+  test_subproperty_review.py
 	source $(top_srcdir)/venv/bin/activate \
 	  && pytest \
 	    --log-level=DEBUG

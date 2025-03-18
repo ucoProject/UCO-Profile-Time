@@ -37,6 +37,7 @@ catalog-v001.xml: \
   $(top_srcdir)/.venv.done.log \
   $(top_srcdir)/etc/domain_directories.tsv \
   $(top_srcdir)/etc/dependency_files.tsv \
+  $(ttl_basenames) \
   $(uco_srcdir)/ontology/uco/master/catalog-v001.xml \
   $(uco_srcdir)/src/create-catalog-v001.xml.py
 	rm -f _$@
@@ -55,6 +56,8 @@ check: \
   catalog-v001.xml
 
 clean:
+	@rm -rf \
+	  __pycache__
 	@rm -f \
 	  _* \
 	  catalog-v001.xml

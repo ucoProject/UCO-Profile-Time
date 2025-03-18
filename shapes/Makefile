@@ -47,6 +47,8 @@ check: \
   catalog-v001.xml
 
 clean:
+	@rm -rf \
+	  __pycache__
 	@rm -f \
 	  _* \
 	  catalog-v001.xml

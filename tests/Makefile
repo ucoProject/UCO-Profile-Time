@@ -55,6 +55,8 @@ check: \
   .pyshacl.done.log
 
 clean:
+	@rm -rf \
+	  __pycache__
 	@rm -f \
 	  .*.done.log \
 	  exemplars-entailment.ttl \

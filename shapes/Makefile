@@ -30,7 +30,6 @@ all: \
 .pytest.done.log: \
   $(test_pys) \
   $(top_srcdir)/.venv.done.log \
-  $(ontology_ttl_basenames) \
   $(ttl_basenames)
 	test 'x$(test_pys)' == 'x' \
 	  || ( \

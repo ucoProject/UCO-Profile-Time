@@ -20,6 +20,8 @@ top_srcdir := $(shell cd .. ; pwd)
 
 uco_srcdir := $(top_srcdir)/dependencies/CDO-Shapes-Time/dependencies/UCO
 
+test_pys := $(wildcard test_*.py)
+
 profile_ttls := $(wildcard $(top_srcdir)/ontology/uco-*.ttl)
 
 shape_ttls := \
@@ -41,10 +43,9 @@ all: \
 	touch $@
 
 .pytest.done.log: \
+  $(test_pys) \
   exemplars.ttl \
-  monolithic.ttl \
-  test_exemplar_coverage.py \
-  test_subproperty_review.py
+  monolithic.ttl
 	source $(top_srcdir)/venv/bin/activate \
 	  && pytest \
 	    --log-level=DEBUG

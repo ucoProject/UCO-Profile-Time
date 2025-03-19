@@ -20,12 +20,15 @@ top_srcdir := $(shell cd .. ; pwd)
 
 uco_srcdir := $(top_srcdir)/dependencies/CDO-Shapes-Time/dependencies/UCO
 
+test_pys := $(wildcard test_*.py)
+
 ttl_basenames := $(wildcard uco-*.ttl)
 
 all: \
   catalog-v001.xml
 
 .pytest.done.log: \
+  $(test_pys) \
   $(top_srcdir)/.venv.done.log \
   $(ttl_basenames)
 	source $(top_srcdir)/venv/bin/activate \
@@ -59,5 +62,6 @@ clean:
 	@rm -rf \
 	  __pycache__
 	@rm -f \
+	  .*.done.log \
 	  _* \
 	  catalog-v001.xml

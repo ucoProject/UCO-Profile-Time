@@ -19,6 +19,15 @@
 		;
 	.
 
+sh-uco-time:InstantaneousPerdurant-disjointWith-ProperIntervalicPerdurant-shape
+	a sh:NodeShape ;
+	sh:not [
+		a sh:NodeShape ;
+		sh:class drafting:ProperIntervalicPerdurant ;
+	] ;
+	sh:targetClass drafting:InstantaneousPerdurant ;
+	.
+
 sh-uco-time:RelatedPerdurant-shape
 	sh:class drafting:Perdurant ;
 	sh:description "This shape is used for reviewing the subjects or objects of properties that have a perdurant class as domain or range.  sh:targetSubjectsOf tests the property domains, and sh:targetObjectsOf the ranges."@en ;

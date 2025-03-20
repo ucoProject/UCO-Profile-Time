@@ -88,6 +88,24 @@ drafting:before
 	owl:inverseOf drafting:after ;
 	.
 
+drafting:hasBeginning
+	a owl:ObjectProperty ;
+	rdfs:comment "Beginning of a perdurant.  (Definition adapted from OWL-Time's hasBeginning.)"@en ;
+	rdfs:domain drafting:Perdurant ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	rdfs:range drafting:InstantaneousPerdurant ;
+	rdfs:seeAlso time:hasBeginning ;
+	.
+
+drafting:hasEnd
+	a owl:ObjectProperty ;
+	rdfs:comment "End of a perdurant.  (Definition adapted from OWL-Time's hasEnd.)"@en ;
+	rdfs:domain drafting:Perdurant ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	rdfs:range drafting:InstantaneousPerdurant ;
+	rdfs:seeAlso time:hasEnd ;
+	.
+
 drafting:intervalContains
 	a owl:ObjectProperty ;
 	rdfs:comment "If a proper-intervalic perdurant P1 is intervalContains another proper interval P2, then the beginning of P1 is before the beginning of P2, and the end of P1 is after the end of P2.  (Definition adapted from OWL-Time's intervalContains.)"@en ;

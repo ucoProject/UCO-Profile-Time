@@ -55,6 +55,15 @@ kb:Perdurant-ba623ad2-0a64-4e71-8037-ecf6baf2e2fb
 	a drafting:Perdurant ;
 	.
 
+kb:Perdurant-bc7d69c4-23f0-4d28-8871-c3c9eef1d014
+	a drafting:Perdurant ;
+	drafting:hasBeginning kb:Perdurant-bcac306d-fafb-4787-93bd-e61cd8806d0c ;
+	.
+
+kb:Perdurant-bcac306d-fafb-4787-93bd-e61cd8806d0c
+	a drafting:Perdurant ;
+	.
+
 kb:Perdurant-bef78884-4d40-4365-9898-f771e4118a10
 	a drafting:Perdurant ;
 	.
@@ -68,12 +77,21 @@ kb:Perdurant-cea1151a-8036-49b1-8578-d7d1fcc229f1
 	a drafting:Perdurant ;
 	.
 
+kb:Perdurant-e4302ce8-e51b-4beb-8909-4c7114699bb7
+	a drafting:Perdurant ;
+	drafting:hasEnd kb:Perdurant-efbad0fb-206d-499b-8e2e-1d23f5ef7d07 ;
+	.
+
 kb:Perdurant-e99ccaf2-3cf4-4b22-8c7e-c91744fe50dc
 	a drafting:Perdurant ;
 	drafting:intervalEquals kb:Perdurant-ee47c5ab-e427-43cb-b789-45af59d3bd66 ;
 	.
 
 kb:Perdurant-ee47c5ab-e427-43cb-b789-45af59d3bd66
+	a drafting:Perdurant ;
+	.
+
+kb:Perdurant-efbad0fb-206d-499b-8e2e-1d23f5ef7d07
 	a drafting:Perdurant ;
 	.
 

@@ -97,7 +97,7 @@ uco-core:Event
 
 []
 	a owl:Axiom ;
-	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/544> ;
 	owl:annotatedProperty rdfs:subClassOf ;
 	owl:annotatedSource uco-action:Action ;
 	owl:annotatedTarget drafting:Perdurant ;
@@ -105,7 +105,7 @@ uco-core:Event
 
 []
 	a owl:Axiom ;
-	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/544> ;
 	owl:annotatedProperty rdfs:subClassOf ;
 	owl:annotatedSource uco-core:Event ;
 	owl:annotatedTarget drafting:Perdurant ;

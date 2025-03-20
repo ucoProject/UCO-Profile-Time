@@ -114,6 +114,34 @@ drafting:inside
 	rdfs:range drafting:InstantaneousPerdurant ;
 	.
 
+drafting:intervalAfter
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf
+		drafting:after ,
+		drafting:intervalDisjoint
+		;
+	rdfs:comment "If a proper-intervalic perdurant P1 is intervalAfter another proper-intervalic perdurant P2, then the beginning of P1 is after the end of P2.  (Definition adapted from OWL-Time's intervalAfter.)"@en ;
+	rdfs:domain drafting:ProperIntervalicPerdurant ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	rdfs:range drafting:ProperIntervalicPerdurant ;
+	rdfs:seeAlso time:intervalAfter ;
+	owl:inverseOf drafting:intervalBefore ;
+	.
+
+drafting:intervalBefore
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf
+		drafting:before ,
+		drafting:intervalDisjoint
+		;
+	rdfs:comment "If a proper-intervalic perdurant P1 is intervalBefore another proper-intervalic perdurant P2, then the end of P1 is before the beginning of P2.  (Definition adapted from OWL-Time's intervalBefore.)"@en ;
+	rdfs:domain drafting:ProperIntervalicPerdurant ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	rdfs:range drafting:ProperIntervalicPerdurant ;
+	rdfs:seeAlso time:intervalBefore ;
+	owl:inverseOf drafting:intervalAfter ;
+	.
+
 drafting:intervalContains
 	a owl:ObjectProperty ;
 	rdfs:comment "If a proper-intervalic perdurant P1 is intervalContains another proper interval P2, then the beginning of P1 is before the beginning of P2, and the end of P1 is after the end of P2.  (Definition adapted from OWL-Time's intervalContains.)"@en ;
@@ -122,6 +150,15 @@ drafting:intervalContains
 	rdfs:range drafting:ProperIntervalicPerdurant ;
 	rdfs:seeAlso time:intervalContains ;
 	owl:inverseOf drafting:intervalDuring ;
+	.
+
+drafting:intervalDisjoint
+	a owl:ObjectProperty ;
+	rdfs:comment "If a proper-intervalic perdurant P1 is intervalDisjoint another proper-intervalic perdurant P2, then the beginning of P1 is after the end of P2, or the end of P1 is before the beginning of P2, i.e. the perdurants' intervals do not overlap in any way, but their ordering relationship is not known.  (Definition adapted from OWL-Time's intervalDisjoint.)"@en ;
+	rdfs:domain drafting:ProperIntervalicPerdurant ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	rdfs:range drafting:ProperIntervalicPerdurant ;
+	rdfs:seeAlso time:intervalDisjoint ;
 	.
 
 drafting:intervalDuring
@@ -145,6 +182,27 @@ drafting:intervalEquals
 	owl:propertyDisjointWith drafting:intervalIn ;
 	.
 
+drafting:intervalFinishedBy
+	a owl:ObjectProperty ;
+	rdfs:comment "If a proper-intervalic perdurant P1 is intervalFinishedBy another proper-intervalic perdurant P2, then the beginning of P1 is before the beginning of P2, and the end of P1 is coincident with the end of P2.  (Definition adapted from OWL-Time's intervalFinishedBy.)"@en ;
+	rdfs:domain drafting:ProperIntervalicPerdurant ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	rdfs:range drafting:ProperIntervalicPerdurant ;
+	rdfs:seeAlso time:intervalFinishedBy ;
+	owl:inverseOf drafting:intervalFinishes ;
+	.
+
+drafting:intervalFinishes
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf drafting:intervalIn ;
+	rdfs:comment "If a proper-intervalic perdurant P1 is intervalFinishes another proper-intervalic perdurant P2, then the beginning of P1 is after the beginning of P2, and the end of P1 is coincident with the end of P2.  (Definition adapted from OWL-Time's intervalFinishes.)"@en ;
+	rdfs:domain drafting:ProperIntervalicPerdurant ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	rdfs:range drafting:ProperIntervalicPerdurant ;
+	rdfs:seeAlso time:intervalFinishes ;
+	owl:inverseOf drafting:intervalFinishedBy ;
+	.
+
 drafting:intervalIn
 	a owl:ObjectProperty ;
 	rdfs:comment "If a proper-intervalic perdurant P1 is intervalIn another proper interval P2, then the beginning of P1 is after the beginning of P2 or is coincident with the beginning of P2, and the end of P1 is before the end of P2 or is coincident with the end of P2, except that end of P1 may not be coincident with the end of P2 if the beginning of P1 is coincident with the beginning of P2.  (Definition adapted from OWL-Time's intervalIn.)"@en ;
@@ -153,6 +211,67 @@ drafting:intervalIn
 	rdfs:range drafting:ProperIntervalicPerdurant ;
 	rdfs:seeAlso time:intervalIn ;
 	owl:propertyDisjointWith drafting:intervalEquals ;
+	.
+
+drafting:intervalMeets
+	a owl:ObjectProperty ;
+	rdfs:comment "If a proper-intervalic perdurant P1 is intervalMeets another proper-intervalic perdurant P2, then the end of P1 is coincident with the beginning of P2.  (Definition adapted from OWL-Time's intervalMeets.)"@en ;
+	rdfs:domain drafting:ProperIntervalicPerdurant ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	rdfs:range drafting:ProperIntervalicPerdurant ;
+	rdfs:seeAlso time:intervalMeets ;
+	owl:inverseOf drafting:intervalMetBy ;
+	.
+
+drafting:intervalMetBy
+	a owl:ObjectProperty ;
+	rdfs:comment "If a proper-intervalic perdurant P1 is intervalMetBy another proper-intervalic perdurant P2, then the beginning of P1 is coincident with the end of P2.  (Definition adapted from OWL-Time's intervalMetBy.)"@en ;
+	rdfs:domain drafting:ProperIntervalicPerdurant ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	rdfs:range drafting:ProperIntervalicPerdurant ;
+	rdfs:seeAlso time:intervalMetBy ;
+	owl:inverseOf drafting:intervalMeets ;
+	.
+
+drafting:intervalOverlappedBy
+	a owl:ObjectProperty ;
+	rdfs:comment "If a proper-intervalic perdurant P1 is intervalOverlappedBy another proper-intervalic perdurant P2, then the beginning of P1 is after the beginning of P2, the beginning of P1 is before the end of P2, and the end of P1 is after the end of P2.  (Definition adapted from OWL-Time's intervalOverlappedBy.)"@en ;
+	rdfs:domain drafting:ProperIntervalicPerdurant ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	rdfs:range drafting:ProperIntervalicPerdurant ;
+	rdfs:seeAlso time:intervalOverlappedBy ;
+	owl:inverseOf drafting:intervalOverlaps ;
+	.
+
+drafting:intervalOverlaps
+	a owl:ObjectProperty ;
+	rdfs:comment "If a proper-intervalic perdurant P1 is intervalOverlaps another proper-intervalic perdurant P2, then the beginning of P1 is before the beginning of P2, the end of P1 is after the beginning of P2, and the end of P1 is before the end of P2.  (Definition adapted from OWL-Time's intervalOverlaps.)"@en ;
+	rdfs:domain drafting:ProperIntervalicPerdurant ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	rdfs:range drafting:ProperIntervalicPerdurant ;
+	rdfs:seeAlso time:intervalOverlaps ;
+	owl:inverseOf drafting:intervalOverlappedBy ;
+	.
+
+drafting:intervalStartedBy
+	a owl:ObjectProperty ;
+	rdfs:comment "If a proper-intervalic perdurant P1 is intervalStarted another proper-intervalic perdurant P2, then the beginning of P1 is coincident with the beginning of P2, and the end of P1 is after the end of P2.  (Definition adapted from OWL-Time's intervalStartedBy.)"@en ;
+	rdfs:domain drafting:ProperIntervalicPerdurant ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	rdfs:range drafting:ProperIntervalicPerdurant ;
+	rdfs:seeAlso time:intervalStartedBy ;
+	owl:inverseOf drafting:intervalStarts ;
+	.
+
+drafting:intervalStarts
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf drafting:intervalIn ;
+	rdfs:comment "If a proper-intervalic perdurant P1 is intervalStarts another proper-intervalic perdurant P2, then the beginning of P1 is coincident with the beginning of P2, and the end of P1 is before the end of P2.  (Definition adapted from OWL-Time's intervalStarts.)"@en ;
+	rdfs:domain drafting:ProperIntervalicPerdurant ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	rdfs:range drafting:ProperIntervalicPerdurant ;
+	rdfs:seeAlso time:intervalStarts ;
+	owl:inverseOf drafting:intervalStartedBy ;
 	.
 
 uco-action:Action

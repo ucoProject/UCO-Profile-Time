@@ -48,14 +48,18 @@ sh-uco-time:RelatedPerdurant-shape
 	sh:description "This shape is used for reviewing the subjects or objects of properties that have a perdurant class (or intervalic perdurant class not specified to be proper-intervalic) as domain or range.  sh:targetSubjectsOf tests the property domains, and sh:targetObjectsOf the ranges."@en ;
 	sh:targetObjectsOf
 		drafting:after ,
-		drafting:before
+		drafting:before ,
+		drafting:intervalAfter ,
+		drafting:intervalBefore
 		;
 	sh:targetSubjectsOf
 		drafting:after ,
 		drafting:before ,
 		drafting:hasBeginning ,
 		drafting:hasEnd ,
-		drafting:inside
+		drafting:inside ,
+		drafting:intervalAfter ,
+		drafting:intervalBefore
 		;
 	.
 
@@ -68,18 +72,40 @@ sh-uco-time:RelatedProperIntervalicPerdurant-shape
 		sh:class drafting:InstantaneousPerdurant ;
 	] ;
 	sh:targetObjectsOf
+		drafting:intervalAfter ,
+		drafting:intervalBefore ,
 		drafting:intervalContains ,
+		drafting:intervalDisjoint ,
 		drafting:intervalDuring ,
 		drafting:intervalEquals ,
+		drafting:intervalFinishedBy ,
+		drafting:intervalFinishes ,
 		drafting:intervalIn ,
+		drafting:intervalMeets ,
+		drafting:intervalMetBy ,
+		drafting:intervalOverlappedBy ,
+		drafting:intervalOverlaps ,
+		drafting:intervalStartedBy ,
+		drafting:intervalStarts ,
 		uco-action:phase ,
 		uco-action:subaction
 		;
 	sh:targetSubjectsOf
+		drafting:intervalAfter ,
+		drafting:intervalBefore ,
 		drafting:intervalContains ,
+		drafting:intervalDisjoint ,
 		drafting:intervalDuring ,
 		drafting:intervalEquals ,
+		drafting:intervalFinishedBy ,
+		drafting:intervalFinishes ,
 		drafting:intervalIn ,
+		drafting:intervalMeets ,
+		drafting:intervalMetBy ,
+		drafting:intervalOverlappedBy ,
+		drafting:intervalOverlaps ,
+		drafting:intervalStartedBy ,
+		drafting:intervalStarts ,
 		uco-action:phase ,
 		uco-action:subaction
 		;

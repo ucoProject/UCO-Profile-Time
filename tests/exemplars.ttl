@@ -29,6 +29,24 @@ kb:Event-05c8d973-25f3-4390-9c2e-2c0af3fbfc44
 	a uco-core:Event ;
 	.
 
+kb:Perdurant-037af646-e4eb-4cfb-b332-976915782280
+	a drafting:Perdurant ;
+	drafting:intervalOverlappedBy kb:Perdurant-06679e73-f18e-450f-a490-876f1f97013a ;
+	.
+
+kb:Perdurant-06679e73-f18e-450f-a490-876f1f97013a
+	a drafting:Perdurant ;
+	.
+
+kb:Perdurant-0bca64b4-b6d1-4658-857b-2ed2a463f7d4
+	a drafting:Perdurant ;
+	drafting:intervalOverlaps kb:Perdurant-0cb945c1-f849-48c1-a7c3-f2d734cf3a0d ;
+	.
+
+kb:Perdurant-0cb945c1-f849-48c1-a7c3-f2d734cf3a0d
+	a drafting:Perdurant ;
+	.
+
 kb:Perdurant-19657f6d-e237-4eea-a196-705761c064b3
 	a drafting:Perdurant ;
 	drafting:inside kb:Perdurant-1f9c1209-c6a5-41eb-b982-750a5dd9f5ca ;
@@ -38,16 +56,61 @@ kb:Perdurant-1f9c1209-c6a5-41eb-b982-750a5dd9f5ca
 	a drafting:Perdurant ;
 	.
 
+kb:Perdurant-30245c7b-4ac4-4e4b-9f93-14b8b6e05ff0
+	a drafting:Perdurant ;
+	drafting:intervalMetBy kb:Perdurant-318601b7-0ea2-4710-9ad2-2f49db1dd058 ;
+	.
+
+kb:Perdurant-318601b7-0ea2-4710-9ad2-2f49db1dd058
+	a drafting:Perdurant ;
+	.
+
 kb:Perdurant-3ccac1ae-6d94-4675-869d-1c4e0a9f2547
 	a drafting:InstantaneousPerdurant ;
+	.
+
+kb:Perdurant-3e622627-009f-4bb6-a60c-b5cd1b76de56
+	a drafting:Perdurant ;
+	drafting:intervalMeets kb:Perdurant-3eac2f6f-43b3-4b01-985b-79d347b448ad ;
+	.
+
+kb:Perdurant-3eac2f6f-43b3-4b01-985b-79d347b448ad
+	a drafting:Perdurant ;
 	.
 
 kb:Perdurant-4a15f0b8-2bda-41bf-9c29-e304ed8715ab
 	a drafting:IntervalicPerdurant ;
 	.
 
+kb:Perdurant-53499be0-2a4b-4a65-b9bb-ba294ca4030d
+	a drafting:Perdurant ;
+	drafting:intervalStartedBy kb:Perdurant-54e72655-cb84-4f78-8182-e7b0b98037cd ;
+	.
+
+kb:Perdurant-54e72655-cb84-4f78-8182-e7b0b98037cd
+	a drafting:Perdurant ;
+	.
+
+kb:Perdurant-57ef1b67-55d0-471c-8819-83c255fed58e
+	a drafting:Perdurant ;
+	drafting:intervalStarts kb:Perdurant-5808f7ac-da66-4063-bdce-4260444850aa ;
+	.
+
+kb:Perdurant-5808f7ac-da66-4063-bdce-4260444850aa
+	a drafting:Perdurant ;
+	.
+
 kb:Perdurant-599c259f-a25d-416d-b2de-52929861a5c7
 	a drafting:ProperIntervalicPerdurant ;
+	.
+
+kb:Perdurant-a4b2d65f-880c-4782-ba0e-93610abe8dff
+	a drafting:Perdurant ;
+	drafting:intervalAfter kb:Perdurant-a5b37ae7-0e57-4980-9452-1e5d72c82095 ;
+	.
+
+kb:Perdurant-a5b37ae7-0e57-4980-9452-1e5d72c82095
+	a drafting:Perdurant ;
 	.
 
 kb:Perdurant-b1135fd3-2918-406a-b9fc-6e5008c08129
@@ -73,7 +136,16 @@ kb:Perdurant-bcac306d-fafb-4787-93bd-e61cd8806d0c
 	a drafting:Perdurant ;
 	.
 
+kb:Perdurant-bda79bc5-1643-4e26-aa20-21339a617c26
+	a drafting:Perdurant ;
+	drafting:intervalBefore kb:Perdurant-bfb91b38-8bfd-4f71-a3ed-255b5beded13 ;
+	.
+
 kb:Perdurant-bef78884-4d40-4365-9898-f771e4118a10
+	a drafting:Perdurant ;
+	.
+
+kb:Perdurant-bfb91b38-8bfd-4f71-a3ed-255b5beded13
 	a drafting:Perdurant ;
 	.
 
@@ -83,6 +155,15 @@ kb:Perdurant-c29c23e6-8876-46f8-b391-73c1503281a7
 	.
 
 kb:Perdurant-cea1151a-8036-49b1-8578-d7d1fcc229f1
+	a drafting:Perdurant ;
+	.
+
+kb:Perdurant-d42d4adf-cfd0-4519-8c6a-c109a5e0eb9e
+	a drafting:Perdurant ;
+	drafting:intervalDisjoint kb:Perdurant-d4e3c2fb-6869-4cb1-953e-78b33a6f41ed ;
+	.
+
+kb:Perdurant-d4e3c2fb-6869-4cb1-953e-78b33a6f41ed
 	a drafting:Perdurant ;
 	.
 
@@ -102,5 +183,23 @@ kb:Perdurant-ee47c5ab-e427-43cb-b789-45af59d3bd66
 
 kb:Perdurant-efbad0fb-206d-499b-8e2e-1d23f5ef7d07
 	a drafting:Perdurant ;
+	.
+
+kb:Perdurant-f2118bfb-3466-4cc0-bb0b-e765009a6395
+	a drafting:Perdurant ;
+	.
+
+kb:Perdurant-f4343f83-fe56-4a47-8dd0-8b2b6999d208
+	a drafting:Perdurant ;
+	drafting:intervalFinishes kb:Perdurant-f2118bfb-3466-4cc0-bb0b-e765009a6395 ;
+	.
+
+kb:Perdurant-f560f871-730a-493e-92de-a2f10e1c53df
+	a drafting:Perdurant ;
+	.
+
+kb:Perdurant-f596d83f-c01b-445c-8a20-2125150d8183
+	a drafting:Perdurant ;
+	drafting:intervalFinishedBy kb:Perdurant-f560f871-730a-493e-92de-a2f10e1c53df ;
 	.
 

@@ -41,7 +41,7 @@ sh-uco-time:RelatedPerdurant-shape
 		;
 	.
 
-sh-uco-time:RelatedProperInterval-shape
+sh-uco-time:RelatedProperIntervalicPerdurant-shape
 	a sh:NodeShape ;
 	sh:class drafting:Perdurant ;
 	sh:description "This shape is used for reviewing the subjects or objects of properties that have a proper-intervalic perdurant class as domain or range.  sh:targetSubjectsOf tests the property domains, and sh:targetObjectsOf the ranges."@en ;

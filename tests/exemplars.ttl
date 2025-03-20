@@ -41,3 +41,12 @@ kb:Perdurant-599c259f-a25d-416d-b2de-52929861a5c7
 	a drafting:ProperIntervalicPerdurant ;
 	.
 
+kb:Perdurant-b1135fd3-2918-406a-b9fc-6e5008c08129
+	a drafting:Perdurant ;
+	drafting:after kb:Perdurant-bef78884-4d40-4365-9898-f771e4118a10 ;
+	.
+
+kb:Perdurant-bef78884-4d40-4365-9898-f771e4118a10
+	a drafting:Perdurant ;
+	.
+

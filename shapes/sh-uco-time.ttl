@@ -31,8 +31,14 @@ sh-uco-time:InstantaneousPerdurant-disjointWith-ProperIntervalicPerdurant-shape
 sh-uco-time:RelatedPerdurant-shape
 	sh:class drafting:Perdurant ;
 	sh:description "This shape is used for reviewing the subjects or objects of properties that have a perdurant class as domain or range.  sh:targetSubjectsOf tests the property domains, and sh:targetObjectsOf the ranges."@en ;
-	sh:targetObjectsOf drafting:after ;
-	sh:targetSubjectsOf drafting:after ;
+	sh:targetObjectsOf
+		drafting:after ,
+		drafting:before
+		;
+	sh:targetSubjectsOf
+		drafting:after ,
+		drafting:before
+		;
 	.
 
 sh-uco-time:RelatedProperInterval-shape

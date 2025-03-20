@@ -72,6 +72,20 @@ drafting:after
 	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
 	rdfs:range drafting:Perdurant ;
 	rdfs:seeAlso time:after ;
+	owl:inverseOf drafting:before ;
+	.
+
+drafting:before
+	a
+		owl:ObjectProperty ,
+		owl:TransitiveProperty
+		;
+	rdfs:comment "The subject is a perdurant that occurs before the object. If a perdurant P1 is before another perdurant P2, then the end of P1 is before the beginning of P2.  (Definition adapted from OWL-Time's before.)"@en ;
+	rdfs:domain drafting:Perdurant ;
+	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;
+	rdfs:range drafting:Perdurant ;
+	rdfs:seeAlso time:before ;
+	owl:inverseOf drafting:after ;
 	.
 
 drafting:intervalContains

@@ -46,6 +46,15 @@ kb:Perdurant-b1135fd3-2918-406a-b9fc-6e5008c08129
 	drafting:after kb:Perdurant-bef78884-4d40-4365-9898-f771e4118a10 ;
 	.
 
+kb:Perdurant-b869cffc-7964-4a51-aed1-569b70183e7d
+	a drafting:Perdurant ;
+	drafting:before kb:Perdurant-ba623ad2-0a64-4e71-8037-ecf6baf2e2fb ;
+	.
+
+kb:Perdurant-ba623ad2-0a64-4e71-8037-ecf6baf2e2fb
+	a drafting:Perdurant ;
+	.
+
 kb:Perdurant-bef78884-4d40-4365-9898-f771e4118a10
 	a drafting:Perdurant ;
 	.

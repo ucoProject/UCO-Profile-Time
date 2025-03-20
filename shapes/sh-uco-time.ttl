@@ -46,14 +46,28 @@ sh-uco-time:RelatedProperInterval-shape
 	sh:targetObjectsOf
 		drafting:intervalContains ,
 		drafting:intervalDuring ,
+		drafting:intervalEquals ,
+		drafting:intervalIn ,
 		uco-action:phase ,
 		uco-action:subaction
 		;
 	sh:targetSubjectsOf
 		drafting:intervalContains ,
 		drafting:intervalDuring ,
+		drafting:intervalEquals ,
+		drafting:intervalIn ,
 		uco-action:phase ,
 		uco-action:subaction
 		;
+	.
+
+sh-uco-time:intervalEquals-intervalIn-disjointProperties-shape
+	a sh:NodeShape ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:disjoint drafting:intervalIn ;
+		sh:path drafting:intervalEquals ;
+	] ;
+	sh:targetSubjectsOf drafting:intervalEquals ;
 	.
 

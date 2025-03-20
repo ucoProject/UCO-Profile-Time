@@ -21,6 +21,7 @@
 
 sh-uco-time:intervalDuring-subjects-shape
 	a sh:NodeShape ;
+	sh:class drafting:Perdurant ;
 	sh:not [
 		a sh:NodeShape ;
 		sh:class drafting:InstantaneousPerdurant ;

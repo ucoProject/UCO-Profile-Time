@@ -29,6 +29,15 @@ kb:Event-05c8d973-25f3-4390-9c2e-2c0af3fbfc44
 	a uco-core:Event ;
 	.
 
+kb:Perdurant-19657f6d-e237-4eea-a196-705761c064b3
+	a drafting:Perdurant ;
+	drafting:inside kb:Perdurant-1f9c1209-c6a5-41eb-b982-750a5dd9f5ca ;
+	.
+
+kb:Perdurant-1f9c1209-c6a5-41eb-b982-750a5dd9f5ca
+	a drafting:Perdurant ;
+	.
+
 kb:Perdurant-3ccac1ae-6d94-4675-869d-1c4e0a9f2547
 	a drafting:InstantaneousPerdurant ;
 	.

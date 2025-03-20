@@ -50,3 +50,12 @@ kb:Perdurant-bef78884-4d40-4365-9898-f771e4118a10
 	a drafting:Perdurant ;
 	.
 
+kb:Perdurant-c29c23e6-8876-46f8-b391-73c1503281a7
+	a drafting:Perdurant ;
+	drafting:intervalContains kb:Perdurant-cea1151a-8036-49b1-8578-d7d1fcc229f1 ;
+	.
+
+kb:Perdurant-cea1151a-8036-49b1-8578-d7d1fcc229f1
+	a drafting:Perdurant ;
+	.
+

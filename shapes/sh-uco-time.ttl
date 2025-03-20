@@ -44,11 +44,13 @@ sh-uco-time:RelatedProperInterval-shape
 		sh:class drafting:InstantaneousPerdurant ;
 	] ;
 	sh:targetObjectsOf
+		drafting:intervalContains ,
 		drafting:intervalDuring ,
 		uco-action:phase ,
 		uco-action:subaction
 		;
 	sh:targetSubjectsOf
+		drafting:intervalContains ,
 		drafting:intervalDuring ,
 		uco-action:phase ,
 		uco-action:subaction

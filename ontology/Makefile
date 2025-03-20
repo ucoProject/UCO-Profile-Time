@@ -30,6 +30,7 @@ all: \
 .pytest.done.log: \
   $(test_pys) \
   $(top_srcdir)/.venv.done.log \
+  $(top_srcdir)/dependencies/CDO-Shapes-Time/dependencies/time.ttl \
   $(ttl_basenames)
 	source $(top_srcdir)/venv/bin/activate \
 	  && pytest \

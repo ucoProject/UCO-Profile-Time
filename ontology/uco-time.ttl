@@ -66,7 +66,10 @@ drafting:ProperIntervalicPerdurant
 	.
 
 drafting:after
-	a owl:ObjectProperty ;
+	a
+		owl:ObjectProperty ,
+		owl:TransitiveProperty
+		;
 	rdfs:comment "The subject is a perdurant that occurs after the object. If a perdurant P1 is after another perdurant P2, then the beginning of P1 is after the end of P2.  (Definition adapted from OWL-Time's after.)"@en ;
 	rdfs:domain drafting:Perdurant ;
 	rdfs:isDefinedBy <https://github.com/ucoProject/UCO/issues/651> ;

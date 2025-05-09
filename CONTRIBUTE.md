@@ -20,7 +20,7 @@ To create a new profile repository for the ontology with short name `Foo`, we su
    1. Addressing the "TODOs" in [`dependencies/Makefile`](dependencies/Makefile)
    1. Updating the TSV files under [`etc/`](etc/).  This is to support local-file editing with some ontology tooling (developed for [UCO Issue 449](https://github.com/ucoProject/UCO/issues/449)).  [These lines](https://github.com/ucoProject/UCO/blob/1.2.0/src/create-catalog-v001.xml.py#L68-L77) describe the file formats.
    1. Renaming the [ontology file under `/ontology`](ontology/uco-example.ttl), and updating its contents.
-   1. Renaming the [shapes file under `/shapes`](shapes/sh-example.ttl), and updating its contents.
+   1. Renaming the [shapes file under `/shapes`](shapes/sh-uco-example.ttl), and updating its contents.  If the profile does not require shapes, the directory `shapes` can be removed.
    1. Updating the [exemplars file under `/tests`](tests/exemplars.ttl) to use all classes mapped in the profile ontology.
    1. After all of the above edits are completed, running `make check` from the top source directory should confirm Turtle files are normalized and unit tests pass.
 1. Push the updated profile to a new repository.

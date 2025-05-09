@@ -226,9 +226,10 @@ clean:
 	@$(MAKE) \
 	  --directory tests \
 	  clean
-	@$(MAKE) \
-	  --directory shapes \
-	  clean
+	@test ! -d shapes \
+	  || $(MAKE) \
+	    --directory shapes \
+	    clean
 	@$(MAKE) \
 	  --directory ontology \
 	  clean

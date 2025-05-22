@@ -29,6 +29,10 @@ kb:Event-05c8d973-25f3-4390-9c2e-2c0af3fbfc44
 	a uco-core:Event ;
 	.
 
+kb:Instant-9c8a3c04-11ee-46a7-b320-8c5abe28b5cc
+	a drafting:Instant ;
+	.
+
 kb:Perdurant-037af646-e4eb-4cfb-b332-976915782280
 	a drafting:Perdurant ;
 	drafting:intervalOverlappedBy kb:Perdurant-06679e73-f18e-450f-a490-876f1f97013a ;

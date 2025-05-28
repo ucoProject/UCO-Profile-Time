@@ -18,6 +18,14 @@
 		;
 	.
 
+drafting:Instant
+	a owl:Class ;
+	rdfs:subClassOf
+		drafting:InstantaneousPerdurant ,
+		time:Instant
+		;
+	.
+
 drafting:InstantaneousPerdurant
 	a owl:Class ;
 	rdfs:subClassOf

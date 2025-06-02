@@ -1,5 +1,5 @@
 # imports: http://www.w3.org/2006/time#2016
-# imports: https://ontology.unifiedcyberontology.org/uco/uco/1.3.0
+# imports: https://ontology.unifiedcyberontology.org/uco/uco/1.4.0
 
 @prefix drafting: <http://example.org/ontology/drafting/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -14,7 +14,7 @@
 	a owl:Ontology ;
 	owl:imports
 		time:2016 ,
-		<https://ontology.unifiedcyberontology.org/uco/uco/1.3.0>
+		<https://ontology.unifiedcyberontology.org/uco/uco/1.4.0>
 		;
 	.
 

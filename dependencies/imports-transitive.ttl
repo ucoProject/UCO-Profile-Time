@@ -557,12 +557,12 @@ time:ProperInterval
 		"intervalo propio"@es
 		;
 	rdfs:comment
-		"A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different"@en ,
+		"A temporal entity with non-zero extent or duration, i.e., for which the value of the beginning and end are different"@en ,
 		"Una entidad temporal con extensión o duración distinta de cero, es decir, para la cual los valores de principio y fin del intervalo son diferentes."@es
 		;
 	owl:disjointWith time:Instant ;
 	skos:definition
-		"A temporal entity with non-zero extent or duration, i.e. for which the value of the beginning and end are different"@en ,
+		"A temporal entity with non-zero extent or duration, i.e., for which the value of the beginning and end are different"@en ,
 		"Una entidad temporal con extensión o duración distinta de cero, es decir, para la cual los valores de principio y fin del intervalo son diferentes."@es
 		;
 	.
@@ -626,7 +626,7 @@ This is a stub class, representing the set of all temporal reference systems."""
     Esta clase comodín representa el conjunto de todos los sistemas de referencia temporal."""@es
 		;
 	skos:note
-		"A taxonomy of temporal reference systems is provided in ISO 19108:2002 [ISO19108], including (a) calendar + clock systems; (b) temporal coordinate systems (i.e. numeric offset from an epoch); (c) temporal ordinal reference systems (i.e. ordered sequence of named intervals, not necessarily of equal duration)."@en ,
+		"A taxonomy of temporal reference systems is provided in ISO 19108:2002 [ISO19108], including (a) calendar + clock systems; (b) temporal coordinate systems (i.e., numeric offset from an epoch); (c) temporal ordinal reference systems (i.e., ordered sequence of named intervals, not necessarily of equal duration)."@en ,
 		"En el ISO 19108:2002 [ISO19108] se proporciona una taxonomía de sistemas de referencia temporal, incluyendo (a) sistemas de calendario + reloj; (b) sistemas de coordenadas temporales (es decir, desplazamiento numérico a partir de una época); (c) sistemas de referencia ordinales temporales (es decir, secuencia ordenada de intervalos nombrados, no necesariamente de igual duración)."@es
 		;
 	.
@@ -719,7 +719,7 @@ In the original OWL-Time the following constraint appeared:
 		;
 	skos:note
 		"La pertenencia de la clase 'unidad de tiempo' está abierta, para permitir otras unidades de tiempo utilizadas en algunas aplicaciones técnicas (por ejemplo, millones de años o el mes Baha'i)."@es ,
-		"Membership of the class TemporalUnit is open, to allow for other temporal units used in some technical applications (e.g. millions of years, Baha'i month)."@en
+		"Membership of the class TemporalUnit is open, to allow for other temporal units used in some technical applications (e.g., millions of years, Baha'i month)."@en
 		;
 	.
 
@@ -784,7 +784,7 @@ time:TimeZone
 		;
 	rdfs:comment
 		"""A Time Zone specifies the amount by which the local time is offset from UTC. 
-	A time zone is usually denoted geographically (e.g. Australian Eastern Daylight Time), with a constant value in a given region. 
+	A time zone is usually denoted geographically (e.g., Australian Eastern Daylight Time), with a constant value in a given region. 
 The region where it applies and the offset from UTC are specified by a locally recognised governing authority."""@en ,
 		"""Un huso horario especifica la cantidad en que la hora local está desplazada con respecto a UTC.
         Un huso horario normalmente se denota geográficamente (p.ej. el horario de verano del este de Australia), con un valor constante en una región dada.
@@ -792,7 +792,7 @@ The region where it applies and the offset from UTC are specified by a locally r
 		;
 	skos:definition
 		"""A Time Zone specifies the amount by which the local time is offset from UTC. 
-	A time zone is usually denoted geographically (e.g. Australian Eastern Daylight Time), with a constant value in a given region. 
+	A time zone is usually denoted geographically (e.g., Australian Eastern Daylight Time), with a constant value in a given region. 
 The region where it applies and the offset from UTC are specified by a locally recognised governing authority."""@en ,
 		"""Un huso horario especifica la cantidad en que la hora local está desplazada con respecto a UTC.
     Un huso horario normalmente se denota geográficamente (p.ej. el horario de verano del este de Australia), con un valor constante en una región dada.
@@ -811,7 +811,7 @@ An alignment axiom
 allows data encoded according to the previous version to be consistent with the updated ontology. '''
 		;
 	skos:note
-		"""A designated timezone is associated with a geographic region. However, for a particular region the offset from UTC often varies seasonally, and the dates of the changes may vary from year to year. The timezone designation usually changes for the different seasons (e.g. Australian Eastern Standard Time vs. Australian Eastern Daylight Time). Furthermore, the offset for a timezone may change over longer timescales, though its designation might not.  
+		"""A designated timezone is associated with a geographic region. However, for a particular region the offset from UTC often varies seasonally, and the dates of the changes may vary from year to year. The timezone designation usually changes for the different seasons (e.g., Australian Eastern Standard Time vs. Australian Eastern Daylight Time). Furthermore, the offset for a timezone may change over longer timescales, though its designation might not.  
 
 Detailed guidance about working with time zones is given in http://www.w3.org/TR/timezone/ ."""@en ,
 		"An ontology for time zone descriptions was described in [owl-time-20060927] and provided as RDF in a separate namespace tzont:. However, that ontology was incomplete in scope, and the example datasets were selective. Furthermore, since the use of a class from an external ontology as the range of an ObjectProperty in OWL-Time creates a dependency, reference to the time zone class has been replaced with the 'stub' class in the normative part of this version of OWL-Time."@en ,
@@ -1584,13 +1584,13 @@ time:intervalDisjoint
 		"intervalo disjunto"@es
 		;
 	rdfs:comment
-		"If a proper interval T1 is intervalDisjoint another proper interval T2, then the beginning of T1 is after the end of T2, or the end of T1 is before the beginning of T2, i.e. the intervals do not overlap in any way, but their ordering relationship is not known."@en ,
+		"If a proper interval T1 is intervalDisjoint another proper interval T2, then the beginning of T1 is after the end of T2, or the end of T1 is before the beginning of T2, i.e., the intervals do not overlap in any way, but their ordering relationship is not known."@en ,
 		"Si un intervalo propio T1 es disjunto con otro intervalo propio T2, entonces el principio de T1 está después del final de T2, o el final de T1 está antes que el principio de T2, es decir, los intervalos no se solapan de ninguna forma, aunque su relación de orden no se conozca."@es
 		;
 	rdfs:domain time:ProperInterval ;
 	rdfs:range time:ProperInterval ;
 	skos:definition
-		"If a proper interval T1 is intervalDisjoint another proper interval T2, then the beginning of T1 is after the end of T2, or the end of T1 is before the beginning of T2, i.e. the intervals do not overlap in any way, but their ordering relationship is not known."@en ,
+		"If a proper interval T1 is intervalDisjoint another proper interval T2, then the beginning of T1 is after the end of T2, or the end of T1 is before the beginning of T2, i.e., the intervals do not overlap in any way, but their ordering relationship is not known."@en ,
 		"Si un intervalo propio T1 es disjunto con otro intervalo propio T2, entonces el principio de T1 está después del final de T2, o el final de T1 está antes que el principio de T2, es decir, los intervalos no se solapan de ninguna forma, aunque su relación de orden no se conozca."@es
 		;
 	skos:note
@@ -2015,7 +2015,7 @@ allows data encoded according to the previous version to be consistent with the 
 	skos:note
 		"""IANA maintains a database of timezones. These are well maintained and generally considered authoritative, but individual items are not available at individual URIs, so cannot be used directly in data expressed using OWL-Time.
 
-DBPedia provides a set of resources corresponding to the IANA timezones, with a URI for each (e.g. http://dbpedia.org/resource/Australia/Eucla). The World Clock service also provides a list of time zones with the description of each available as an individual webpage with a convenient individual URI (e.g. https://www.timeanddate.com/time/zones/acwst). These or other, similar, resources might be used as a value of the time:timeZone property.""" ,
+DBPedia provides a set of resources corresponding to the IANA timezones, with a URI for each (e.g., http://dbpedia.org/resource/Australia/Eucla). The World Clock service also provides a list of time zones with the description of each available as an individual webpage with a convenient individual URI (e.g., https://www.timeanddate.com/time/zones/acwst). These or other, similar, resources might be used as a value of the time:timeZone property.""" ,
 		"""IANA mantiene una base de datos de husos horarios. Éstas están bien mantenidas y generalmente se consideran autorizadas, pero los ítems individuales no están disponibles en URIs individuales, por tanto, no se pueden utilizar directamente en datos expresados utilizando OWL-Time.
             La BDPedia proporciona un conjunto de recursos correspondientes a los husos horarios de IANA, con una URI para cada uno (por ejemplo, http://dbpedia.org/resource/Australia/Eucla). El Servicio de Reloj Mundial también proporciona una lista de husos horarios con la descripción de cada uno de los disponibles como una página Web individual con una URI adecuada individual (por ejemplo, https://www.timeanddate.com/time/zones/acwst). Éstos, y otros recursos similares, se puden usar como un valor de la propiedad 'huso horario'."""@es
 		;
@@ -2355,7 +2355,7 @@ time:xsdDateTime
 	rdfs:range xsd:dateTime ;
 	owl:deprecated "true"^^xsd:boolean ;
 	skos:note
-		"Using xsd:dateTime in this place means that the duration of the interval is implicit: it corresponds to the length of the smallest non-zero element of the date-time literal. However, this rule cannot be used for intervals whose duration is more than one rank smaller than the starting time - e.g. the first minute or second of a day, the first hour of a month, or the first day of a year. In these cases the desired interval cannot be distinguished from the interval corresponding to the next rank up. Because of this essential ambiguity, use of this property is not recommended and it is deprecated."@en ,
+		"Using xsd:dateTime in this place means that the duration of the interval is implicit: it corresponds to the length of the smallest non-zero element of the date-time literal. However, this rule cannot be used for intervals whose duration is more than one rank smaller than the starting time - e.g., the first minute or second of a day, the first hour of a month, or the first day of a year. In these cases the desired interval cannot be distinguished from the interval corresponding to the next rank up. Because of this essential ambiguity, use of this property is not recommended and it is deprecated."@en ,
 		"Utilizando xsd:dateTime en este lugar significa que la duración del intervalo está implícita: se corresponde con la longitud del elemento más pequeño distinto de cero del literal fecha-hora. Sin embargo, esta regla no se puede utilizar para intervalos cuya duración es mayor que un rango más pequeño que el tiempo de comienzo - p.ej. el primer minuto o segundo del día, la primera hora del mes, o el primer día del año. En estos casos el intervalo deseado no se puede distinguir del intervalo correspondiente al próximo rango más alto. Debido a esta ambigüedad esencial, no se recomienda el uso de esta propiedad y está desaprobada."
 		;
 	.

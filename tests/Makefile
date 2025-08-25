@@ -16,6 +16,8 @@
 
 SHELL := /bin/bash
 
+PYTHON3 ?= python3
+
 top_srcdir := $(shell cd .. ; pwd)
 
 uco_srcdir := $(top_srcdir)/dependencies/CDO-Shapes-Time/dependencies/UCO
@@ -92,6 +94,7 @@ monolithic.ttl: \
   $(profile_ttls) \
   $(shape_ttls)
 	$(MAKE) \
+	  PYTHON3=$(PYTHON3) \
 	  --directory $(uco_srcdir) \
 	  .venv.done.log
 	$(MAKE) \

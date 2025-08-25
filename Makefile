@@ -122,6 +122,7 @@ check: \
   check-ontology \
   check-shapes
 	$(MAKE) \
+	  PYTHON3=$(PYTHON3) \
 	  --directory tests \
 	  check
 

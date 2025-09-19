@@ -24,8 +24,13 @@ srcdir = Path(__file__).parent
 top_srcdir = Path(__file__).parent.parent
 
 NS_DRAFTING = Namespace("http://example.org/ontology/drafting/")
-NS_RDF = RDF
 NS_OWL = OWL
+NS_RDF = RDF
+NS_TIME = TIME
+
+# This namespace is a customized object to add concepts from the current
+# Editor's Draft.
+NS_TIME_ED = Namespace(str(TIME))
 
 
 def test_relations_coverage() -> None:
@@ -35,6 +40,12 @@ def test_relations_coverage() -> None:
     # The expected-set is empty.
     # The computed set is all OWL-Time properties that do not have an analagous drafting-namespace property defined.
     expected: set[URIRef] = set()
+    excused: set[URIRef] = {
+        NS_TIME_ED["disjoint"],
+        NS_TIME_ED["equals"],
+        NS_TIME_ED["hasInside"],
+        NS_TIME_ED["notDisjoint"],
+    }
     computed: set[URIRef] = set()
 
     owl_time_graph = Graph()
@@ -47,7 +58,7 @@ def test_relations_coverage() -> None:
     logging.debug("len(owl_time_graph) = %d.", len(owl_time_graph))
     logging.debug("len(profile_graph) = %d.", len(profile_graph))
 
-    time_prefix_iri = str(TIME)
+    time_prefix_iri = str(NS_TIME)
 
     query = """\
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -85,4 +96,4 @@ WHERE {
         ) not in profile_graph:
             computed.add(n_time_property)
 
-    assert expected == computed
+    assert expected == computed - excused

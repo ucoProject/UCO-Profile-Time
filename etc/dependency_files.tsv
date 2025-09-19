@@ -1,4 +1,5 @@
 http://example.org/ontology/uco-time	${top_srcdir}/ontology/uco-time.ttl
 http://example.org/shapes/sh-time	${top_srcdir}/dependencies/CDO-Shapes-Time/shapes/sh-time.ttl
+http://example.org/shapes/sh-time-editors-draft	${top_srcdir}/dependencies/CDO-Shapes-Time/shapes/sh-time-editors-draft.ttl
 http://example.org/shapes/sh-uco-time	${top_srcdir}/shapes/sh-uco-time.ttl
 http://www.w3.org/2006/time#2016	${top_srcdir}/dependencies/CDO-Shapes-Time/dependencies/time.ttl

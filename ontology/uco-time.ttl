@@ -128,7 +128,10 @@ drafting:inside
 	.
 
 drafting:intervalAfter
-	a owl:ObjectProperty ;
+	a
+		owl:ObjectProperty ,
+		owl:IrreflexiveProperty
+		;
 	rdfs:subPropertyOf
 		drafting:after ,
 		drafting:intervalDisjoint
@@ -142,7 +145,10 @@ drafting:intervalAfter
 	.
 
 drafting:intervalBefore
-	a owl:ObjectProperty ;
+	a
+		owl:ObjectProperty ,
+		owl:IrreflexiveProperty
+		;
 	rdfs:subPropertyOf
 		drafting:before ,
 		drafting:intervalDisjoint

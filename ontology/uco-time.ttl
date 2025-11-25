@@ -32,7 +32,7 @@ drafting:InstantaneousPerdurant
 		drafting:Perdurant ,
 		[
 			a owl:Restriction ;
-			owl:onProperty owl:hasTime ;
+			owl:onProperty time:hasTime ;
 			owl:allValuesFrom time:Instant ;
 		]
 		;
@@ -46,7 +46,7 @@ drafting:IntervalicPerdurant
 		drafting:Perdurant ,
 		[
 			a owl:Restriction ;
-			owl:onProperty owl:hasTime ;
+			owl:onProperty time:hasTime ;
 			owl:allValuesFrom time:Interval ;
 		]
 		;
@@ -65,7 +65,7 @@ drafting:ProperIntervalicPerdurant
 		drafting:IntervalicPerdurant ,
 		[
 			a owl:Restriction ;
-			owl:onProperty owl:hasTime ;
+			owl:onProperty time:hasTime ;
 			owl:allValuesFrom time:ProperInterval ;
 		]
 		;

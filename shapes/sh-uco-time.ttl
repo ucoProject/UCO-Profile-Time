@@ -75,6 +75,7 @@ sh-uco-time:RelatedInstantaneousPerdurant-shape
 	.
 
 sh-uco-time:RelatedPerdurant-shape
+	a sh:NodeShape ;
 	sh:class drafting:Perdurant ;
 	sh:description "This shape is used for reviewing the subjects or objects of properties that have a perdurant class (or intervalic perdurant class not specified to be proper-intervalic) as domain or range.  sh:targetSubjectsOf tests the property domains, and sh:targetObjectsOf the ranges."@en ;
 	sh:targetObjectsOf

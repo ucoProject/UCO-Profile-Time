@@ -7,6 +7,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix sh-uco-time: <http://example.org/shapes/sh-uco-time/> .
+@prefix time: <http://www.w3.org/2006/time#> .
 @prefix uco-action: <https://ontology.unifiedcyberontology.org/uco/action/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -26,6 +27,36 @@ sh-uco-time:InstantaneousPerdurant-disjointWith-ProperIntervalicPerdurant-shape
 		sh:class drafting:ProperIntervalicPerdurant ;
 	] ;
 	sh:targetClass drafting:InstantaneousPerdurant ;
+	.
+
+sh-uco-time:InstantaneousPerdurant-shape
+	a sh:NodeShape ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:class time:Instant ;
+		sh:path time:hasTime ;
+	] ;
+	sh:targetClass drafting:InstantaneousPerdurant ;
+	.
+
+sh-uco-time:IntervalicPerdurant-shape
+	a sh:NodeShape ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:class time:Interval ;
+		sh:path time:hasTime ;
+	] ;
+	sh:targetClass drafting:IntervalicPerdurant ;
+	.
+
+sh-uco-time:ProperIntervalicPerdurant-shape
+	a sh:NodeShape ;
+	sh:property [
+		a sh:PropertyShape ;
+		sh:class time:ProperInterval ;
+		sh:path time:hasTime ;
+	] ;
+	sh:targetClass drafting:ProperIntervalicPerdurant ;
 	.
 
 sh-uco-time:RelatedInstantaneousPerdurant-shape

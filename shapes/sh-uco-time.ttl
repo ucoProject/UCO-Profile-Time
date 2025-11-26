@@ -61,8 +61,8 @@ sh-uco-time:ProperIntervalicPerdurant-shape
 
 sh-uco-time:RelatedInstantaneousPerdurant-shape
 	a sh:NodeShape ;
+	rdfs:comment "This shape is used for reviewing the subjects or objects of properties that have an instantaneous perdurant class as domain or range.  sh:targetSubjectsOf tests the property domains, and sh:targetObjectsOf the ranges."@en ;
 	sh:class drafting:Perdurant ;
-	sh:description "This shape is used for reviewing the subjects or objects of properties that have an instantaneous perdurant class as domain or range.  sh:targetSubjectsOf tests the property domains, and sh:targetObjectsOf the ranges."@en ;
 	sh:not [
 		a sh:NodeShape ;
 		sh:class drafting:ProperIntervalicPerdurant ;
@@ -76,8 +76,8 @@ sh-uco-time:RelatedInstantaneousPerdurant-shape
 
 sh-uco-time:RelatedPerdurant-shape
 	a sh:NodeShape ;
+	rdfs:comment "This shape is used for reviewing the subjects or objects of properties that have a perdurant class (or intervalic perdurant class not specified to be proper-intervalic) as domain or range.  sh:targetSubjectsOf tests the property domains, and sh:targetObjectsOf the ranges."@en ;
 	sh:class drafting:Perdurant ;
-	sh:description "This shape is used for reviewing the subjects or objects of properties that have a perdurant class (or intervalic perdurant class not specified to be proper-intervalic) as domain or range.  sh:targetSubjectsOf tests the property domains, and sh:targetObjectsOf the ranges."@en ;
 	sh:targetObjectsOf
 		drafting:after ,
 		drafting:before ,
@@ -97,8 +97,8 @@ sh-uco-time:RelatedPerdurant-shape
 
 sh-uco-time:RelatedProperIntervalicPerdurant-shape
 	a sh:NodeShape ;
+	rdfs:comment "This shape is used for reviewing the subjects or objects of properties that have a proper-intervalic perdurant class as domain or range.  sh:targetSubjectsOf tests the property domains, and sh:targetObjectsOf the ranges."@en ;
 	sh:class drafting:Perdurant ;
-	sh:description "This shape is used for reviewing the subjects or objects of properties that have a proper-intervalic perdurant class as domain or range.  sh:targetSubjectsOf tests the property domains, and sh:targetObjectsOf the ranges."@en ;
 	sh:not [
 		a sh:NodeShape ;
 		sh:class drafting:InstantaneousPerdurant ;

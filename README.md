@@ -1,4 +1,4 @@
-# UCO Profile: Example
+# UCO Profile: OWL-Time
 
 ![Repository Status](https://img.shields.io/badge/-exploratory-informational)
 

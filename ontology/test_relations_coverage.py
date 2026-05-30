@@ -52,7 +52,11 @@ def test_relations_coverage() -> None:
     profile_graph = Graph()
 
     owl_time_graph.parse(
-        top_srcdir / "dependencies" / "CDO-Shapes-Time" / "dependencies" / "time.ttl"
+        top_srcdir
+        / "dependencies"
+        / "CDO-Shapes-Time"
+        / "dependencies"
+        / "formatted-time.ttl"
     )
     profile_graph.parse(srcdir / "uco-time.ttl")
     logging.debug("len(owl_time_graph) = %d.", len(owl_time_graph))

@@ -26,6 +26,7 @@ test_pys := $(wildcard test_*.py)
 # by owl:imports, including UCO.  Non-shapes graphs are delegated to
 # ../ontology/generated-dependencies.ttl.
 generated_dependencies_ttls := \
+  $(top_srcdir)/dependencies/CDO-Shapes-Time/shapes/sh-time-editors-draft.ttl \
   $(top_srcdir)/dependencies/CDO-Shapes-Time/shapes/sh-time.ttl \
   $(uco_srcdir)/tests/uco_monolithic.ttl
 

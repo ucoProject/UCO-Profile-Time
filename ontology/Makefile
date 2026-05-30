@@ -21,7 +21,7 @@ top_srcdir := $(shell cd .. ; pwd)
 uco_srcdir := $(top_srcdir)/dependencies/CDO-Shapes-Time/dependencies/UCO
 
 generated_dependencies_ttls := \
-  $(top_srcdir)/dependencies/CDO-Shapes-Time/dependencies/time.ttl \
+  $(top_srcdir)/dependencies/CDO-Shapes-Time/dependencies/formatted-time.ttl \
   $(uco_srcdir)/tests/uco_monolithic.ttl
 
 test_pys := $(wildcard test_*.py)

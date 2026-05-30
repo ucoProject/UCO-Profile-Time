@@ -20,6 +20,10 @@ top_srcdir := $(shell cd .. ; pwd)
 
 uco_srcdir := $(top_srcdir)/dependencies/CDO-Shapes-Time/dependencies/UCO
 
+generated_dependencies_ttls := \
+  $(top_srcdir)/dependencies/CDO-Shapes-Time/dependencies/time.ttl \
+  $(uco_srcdir)/tests/uco_monolithic.ttl
+
 test_pys := $(wildcard test_*.py)
 
 ttl_basenames := $(wildcard uco-*.ttl)
@@ -27,11 +31,15 @@ ttl_basenames := $(wildcard uco-*.ttl)
 all: \
   catalog-v001.xml
 
+# .empty.ttl is retained to guarantee rdfpipe takes at least one file as
+# an input when building generated-dependencies.ttl and -local.ttl.
+.empty.ttl:
+	test -r $@
+
 .pytest.done.log: \
   $(test_pys) \
   $(top_srcdir)/.venv.done.log \
-  $(top_srcdir)/dependencies/CDO-Shapes-Time/dependencies/time.ttl \
-  $(ttl_basenames)
+  generated-local.ttl
 	source $(top_srcdir)/venv/bin/activate \
 	  && pytest \
 	    --log-level=DEBUG
@@ -41,9 +49,9 @@ catalog-v001.xml: \
   $(top_srcdir)/.venv.done.log \
   $(top_srcdir)/etc/domain_directories.tsv \
   $(top_srcdir)/etc/dependency_files.tsv \
-  $(ttl_basenames) \
   $(uco_srcdir)/ontology/uco/master/catalog-v001.xml \
-  $(uco_srcdir)/src/create-catalog-v001.xml.py
+  $(uco_srcdir)/src/create-catalog-v001.xml.py \
+  generated-ontology.ttl
 	rm -f _$@
 	source $(top_srcdir)/venv/bin/activate \
 	  && python3 $(uco_srcdir)/src/create-catalog-v001.xml.py \
@@ -52,12 +60,12 @@ catalog-v001.xml: \
 	    $(top_srcdir)/etc/domain_directories.tsv \
 	    $(top_srcdir)/etc/dependency_files.tsv \
 	    "$(top_srcdir)" \
-	    $(ttl_basenames)
+	    generated-ontology.ttl
 	mv _$@ $@
 
 check: \
   .pytest.done.log \
-  catalog-v001.xml
+  all
 
 clean:
 	@rm -rf \
@@ -65,4 +73,53 @@ clean:
 	@rm -f \
 	  .*.done.log \
 	  _* \
-	  catalog-v001.xml
+	  catalog-v001.xml \
+	  generated-*.ttl
+
+generated-dependencies.ttl: \
+  $(generated_dependencies_ttls) \
+  $(top_srcdir)/.venv.done.log \
+  $(uco_srcdir)/ontology/owl/owl.ttl \
+  .empty.ttl
+	source $(top_srcdir)/venv/bin/activate \
+	  && rdfpipe \
+	    --output-format turtle \
+	    $(generated_dependencies_ttls) \
+	    .empty.ttl \
+	    > _$@
+	# Check for conflicts when merging ontology files.
+	source $(top_srcdir)/venv/bin/activate \
+	  && pyshacl \
+	    --shacl $(uco_srcdir)/ontology/owl/owl.ttl \
+	    _$@
+	mv _$@ $@
+
+# OWL shapes not run against this file, as there may be axioms needed
+# from generated-dependencies.ttl.
+generated-local.ttl: \
+  $(top_srcdir)/.venv.done.log \
+  $(ttl_basenames) \
+  .empty.ttl
+	source $(top_srcdir)/venv/bin/activate \
+	  && rdfpipe \
+	    --output-format turtle \
+	    $(ttl_basenames) \
+	    .empty.ttl \
+	    > _$@
+	mv _$@ $@
+
+generated-ontology.ttl: \
+  generated-dependencies.ttl \
+  generated-local.ttl
+	source $(top_srcdir)/venv/bin/activate \
+	  && rdfpipe \
+	    --output-format turtle \
+	    generated-dependencies.ttl \
+	    generated-local.ttl \
+	    > _$@
+	# Check for conflicts when merging ontology files.
+	source $(top_srcdir)/venv/bin/activate \
+	  && pyshacl \
+	    --shacl $(uco_srcdir)/ontology/owl/owl.ttl \
+	    _$@
+	mv _$@ $@

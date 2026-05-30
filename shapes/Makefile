@@ -22,6 +22,13 @@ uco_srcdir := $(top_srcdir)/dependencies/CDO-Shapes-Time/dependencies/UCO
 
 test_pys := $(wildcard test_*.py)
 
+# This list is all of the graph files that contain shapes graphs linked
+# by owl:imports, including UCO.  Non-shapes graphs are delegated to
+# ../ontology/generated-dependencies.ttl.
+generated_dependencies_ttls := \
+  $(top_srcdir)/dependencies/CDO-Shapes-Time/shapes/sh-time.ttl \
+  $(uco_srcdir)/tests/uco_monolithic.ttl
+
 ttl_basenames := $(wildcard sh-*.ttl)
 
 all: \
@@ -43,9 +50,9 @@ catalog-v001.xml: \
   $(top_srcdir)/.venv.done.log \
   $(top_srcdir)/etc/domain_directories.tsv \
   $(top_srcdir)/etc/dependency_files.tsv \
-  $(ttl_basenames) \
   $(uco_srcdir)/ontology/uco/master/catalog-v001.xml \
-  $(uco_srcdir)/src/create-catalog-v001.xml.py
+  $(uco_srcdir)/src/create-catalog-v001.xml.py \
+  generated-shapes.ttl
 	rm -f _$@
 	source $(top_srcdir)/venv/bin/activate \
 	  && python3 $(uco_srcdir)/src/create-catalog-v001.xml.py \
@@ -54,7 +61,7 @@ catalog-v001.xml: \
 	    $(top_srcdir)/etc/domain_directories.tsv \
 	    $(top_srcdir)/etc/dependency_files.tsv \
 	    "$(top_srcdir)" \
-	    $(ttl_basenames)
+	    generated-shapes.ttl
 	mv _$@ $@
 
 check: \
@@ -67,4 +74,56 @@ clean:
 	@rm -f \
 	  .*.done.log \
 	  _* \
-	  catalog-v001.xml
+	  catalog-v001.xml \
+	  generated-*
+
+generated-dependencies.ttl: \
+  $(generated_dependencies_ttls) \
+  $(top_srcdir)/.venv.done.log \
+  $(top_srcdir)/ontology/generated-dependencies.ttl \
+  .empty.ttl
+	source $(top_srcdir)/venv/bin/activate \
+	  && rdfpipe \
+	    --output-format turtle \
+	    $(generated_dependencies_ttls) \
+	    .empty.ttl \
+	    > _$@
+	# Check for conflicts when merging shape files.
+	source $(top_srcdir)/venv/bin/activate \
+	  && pyshacl \
+	    --metashacl \
+	    --ont-graph $(top_srcdir)/ontology/generated-dependencies.ttl \
+	    --shacl _$@ \
+	    .empty.ttl
+	mv _$@ $@
+
+generated-local.ttl: \
+  $(top_srcdir)/.venv.done.log \
+  $(ttl_basenames) \
+  .empty.ttl
+	source $(top_srcdir)/venv/bin/activate \
+	  && rdfpipe \
+	    --output-format turtle \
+	    $(ttl_basenames) \
+	    .empty.ttl \
+	    > _$@
+	mv _$@ $@
+
+generated-shapes.ttl: \
+  $(top_srcdir)/ontology/generated-ontology.ttl \
+  generated-dependencies.ttl \
+  generated-local.ttl
+	source $(top_srcdir)/venv/bin/activate \
+	  && rdfpipe \
+	    --output-format turtle \
+	    generated-dependencies.ttl \
+	    generated-local.ttl \
+	    > _$@
+	# Check for conflicts when merging shape files.
+	source $(top_srcdir)/venv/bin/activate \
+	  && pyshacl \
+	    --metashacl \
+	    --ont-graph $(top_srcdir)/ontology/generated-ontology.ttl \
+	    --shacl _$@ \
+	    .empty.ttl
+	mv _$@ $@

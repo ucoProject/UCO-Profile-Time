@@ -20,13 +20,14 @@ PYTHON3 ?= python3
 
 all: \
   .venv-pre-commit/var/.pre-commit-built.log \
-  all-ontology \
-  all-shapes
+  all-shapes \
+  all-tests
 
 .PHONY: \
   all-dependencies \
   all-ontology \
   all-shapes \
+  all-tests \
   check-dependencies \
   check-mypy \
   check-ontology \
@@ -34,7 +35,12 @@ all: \
   check-supply-chain \
   check-supply-chain-cdo-profile \
   check-supply-chain-pre-commit \
-  check-supply-chain-submodules
+  check-supply-chain-submodules \
+  check-tests \
+  clean-dependencies \
+  clean-ontology \
+  clean-shapes \
+  clean-tests
 
 # This Make target should be left in place, even if it does nothing.  It
 # has been found beneficial with profiles that have a submodule-based
@@ -98,6 +104,7 @@ all-dependencies: \
   .git_submodule_init.done.log \
   .venv.done.log
 	$(MAKE) \
+	  PYTHON3=$(PYTHON3) \
 	  --directory dependencies
 
 all-ontology: \
@@ -105,26 +112,20 @@ all-ontology: \
 	$(MAKE) \
 	  --directory ontology
 
-# NOTE: For profiles that don't include shapes, the $(top_srcdir)/shapes
-# directory might be missing.  Checking for its existence first relieves
-# each profile of needing to modify the top Makefile when removing
-# shapes.
 all-shapes: \
-  all-dependencies
-	test ! -d shapes \
-	  || $(MAKE) \
-	    --directory shapes
+  all-ontology
+	$(MAKE) \
+	  --directory shapes
+
+all-tests: \
+  all-ontology
+	$(MAKE) \
+	  --directory tests
 
 check: \
   .venv-pre-commit/var/.pre-commit-built.log \
   check-mypy \
-  check-dependencies \
-  check-ontology \
-  check-shapes
-	$(MAKE) \
-	  PYTHON3=$(PYTHON3) \
-	  --directory tests \
-	  check
+  check-tests
 
 check-dependencies: \
   all-dependencies
@@ -142,21 +143,18 @@ check-mypy: \
 	    .
 
 check-ontology: \
-  all-ontology
+  all-ontology \
+  check-dependencies
 	$(MAKE) \
 	  --directory ontology \
 	  check
 
-# NOTE: For profiles that don't include shapes, the $(top_srcdir)/shapes
-# directory might be missing.  Checking for its existence first relieves
-# each profile of needing to modify the top Makefile when removing
-# shapes.
 check-shapes: \
-  all-shapes
-	test ! -d shapes \
-	  || $(MAKE) \
-	    --directory shapes \
-	    check
+  all-shapes \
+  check-ontology
+	$(MAKE) \
+	  --directory shapes \
+	  check
 
 # This target's dependencies potentially modify the working directory's
 # Git state, so it is intentionally not a dependency of check.
@@ -223,19 +221,37 @@ check-supply-chain-submodules: \
 	  --ignore-submodules=dirty \
 	  dependencies
 
-clean:
-	@$(MAKE) \
+check-tests: \
+  all-tests \
+  check-shapes
+	$(MAKE) \
 	  --directory tests \
-	  clean
-	@test ! -d shapes \
-	  || $(MAKE) \
-	    --directory shapes \
-	    clean
-	@$(MAKE) \
-	  --directory ontology \
-	  clean
+	  check
+
+clean: \
+  clean-tests \
+  clean-shapes \
+  clean-ontology \
+  clean-dependencies
+	@rm -f \
+	  .*.done.log
+
+clean-dependencies:
 	@$(MAKE) \
 	  --directory dependencies \
 	  clean
-	@rm -f \
-	  .*.done.log
+
+clean-ontology:
+	@$(MAKE) \
+	  --directory ontology \
+	  clean
+
+clean-shapes:
+	@$(MAKE) \
+	  --directory shapes \
+	  clean
+
+clean-tests:
+	@$(MAKE) \
+	  --directory tests \
+	  clean

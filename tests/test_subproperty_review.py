@@ -41,7 +41,7 @@ def test_subproperty_sh_target_review() -> None:
     computed: set[tuple[URIRef, URIRef, URIRef, URIRef]] = set()
 
     graph = Graph()
-    filepath = srcdir / "monolithic.ttl"
+    filepath = srcdir / "generated-monolithic.ttl"
     graph.parse(filepath)
     logging.debug("len(graph) = %d.", len(graph))
 

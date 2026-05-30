@@ -16,40 +16,26 @@
 
 SHELL := /bin/bash
 
-top_srcdir := $(shell cd .. ; pwd)
+PYTHON3 ?= python3
 
-uco_srcdir := $(top_srcdir)/dependencies/CDO-Shapes-Time/dependencies/UCO
+uco_srcdir := CDO-Shapes-Time/dependencies/UCO
 
 all: \
-  catalog-v001.xml
+  $(uco_srcdir)/tests/uco_monolithic.ttl
 
-catalog-v001.xml: \
-  $(top_srcdir)/.venv.done.log \
-  $(top_srcdir)/etc/domain_directories.tsv \
-  $(top_srcdir)/etc/dependency_files.tsv \
-  $(uco_srcdir)/src/create-catalog-v001.xml.py \
-  imports-transitive.ttl
-	rm -f _$@
-	source $(top_srcdir)/venv/bin/activate \
-	  && python3 $(uco_srcdir)/src/create-catalog-v001.xml.py \
-	    _$@ \
-	    $(top_srcdir)/etc/domain_directories.tsv \
-	    $(top_srcdir)/etc/dependency_files.tsv \
-	    "$(top_srcdir)" \
-	    imports-transitive.ttl
-	mv _$@ $@
+$(uco_srcdir)/.venv.done.log:
+	$(MAKE) \
+	  PYTHON3=$(PYTHON3) \
+	  --directory $(uco_srcdir) \
+	  .venv.done.log
+
+$(uco_srcdir)/tests/uco_monolithic.ttl: \
+  $(uco_srcdir)/.venv.done.log
+	$(MAKE) \
+	  --directory $(uco_srcdir)/tests \
+	  uco_monolithic.ttl
 
 check: \
-  catalog-v001.xml
+  all
 
 clean:
-	@rm -f \
-	  catalog-v001.xml \
-	  imports-transitive.ttl
-
-# This recipe intentionally does not incorporate CDO ontologies (UCO,
-# CASE, etc.), to avoid redundant imports between multiple profiles.
-imports-transitive.ttl: \
-  $(top_srcdir)/dependencies/CDO-Shapes-Time/dependencies/imports-transitive.ttl
-	cp $< _$@
-	mv _$@ $@

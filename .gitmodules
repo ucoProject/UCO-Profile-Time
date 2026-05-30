@@ -1,3 +1,4 @@
 [submodule "dependencies/CDO-Shapes-Time"]
 	path = dependencies/CDO-Shapes-Time
 	url = https://github.com/Cyber-Domain-Ontology/CDO-Shapes-Time.git
+	branch = main

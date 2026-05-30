@@ -4,4 +4,5 @@
 .venv-pre-commit
 _*.*
 __pycache__
+generated-*
 venv

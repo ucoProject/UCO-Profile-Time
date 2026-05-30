@@ -34,16 +34,7 @@ def test_disjointedness_symmetry() -> None:
     computed: set[tuple[URIRef, URIRef]] = set()
 
     profile_graph = Graph()
-    for filepath in (srcdir).iterdir():
-        if filepath.name.startswith("_"):
-            # Skip temporary build artifacts.
-            continue
-        if filepath.name.startswith("."):
-            # Skip quality control test artifacts.
-            continue
-        if filepath.name.endswith(".ttl"):
-            logging.debug("Loading profile graph %r.", filepath)
-            profile_graph.parse(filepath)
+    profile_graph.parse(srcdir / "generated-local.ttl")
     logging.debug("len(profile_graph) = %d.", len(profile_graph))
 
     for triple in profile_graph.triples((None, NS_OWL.disjointWith, None)):

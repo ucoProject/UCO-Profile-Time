@@ -28,37 +28,39 @@ srcdir = Path(__file__).parent
 top_srcdir = srcdir.parent
 
 
-def test_exemplar_coverage() -> None:
+def test_exemplar_profile_coverage() -> None:
     """
     This test confirms that for each class C in the profile ontology (or
     ontologies) designated a class, or a subclass of some C'; and each
     property P designated a property, or a subproperty of some P';
     C (/P) is used in the exemplars graph.
+
+    The transitive import closure of the ontology graph is brought in
+    for subclass and subproperty entailment.  But, only concepts locally
+    defined and/or mapped in this repository are checked for review-
+    subjects. (Else, each dependent ontology graphs would also incur
+    review-subject needs.)
     """
     exemplar_graph = Graph()
     profile_graph = Graph()
     tbox_graph = Graph()
     combined_graph = Graph()
 
-    for filepath in (top_srcdir / "ontology").iterdir():
-        if filepath.name.startswith("_"):
-            # Skip temporary build artifacts.
-            continue
-        if filepath.name.startswith("."):
-            # Skip quality control test artifacts.
-            continue
-        if filepath.name.endswith(".ttl"):
-            logging.debug("Loading profile graph %r.", filepath)
-            profile_graph.parse(filepath)
-    logging.debug("len(profile_graph) = %d.", len(profile_graph))
-
-    monolithic_filepath = srcdir / "monolithic.ttl"
-    tbox_graph.parse(monolithic_filepath)
-
     exemplar_filepath = srcdir / "exemplars.ttl"
+    ontology_filepath = top_srcdir / "ontology" / "generated-ontology.ttl"
+    profile_filepath = top_srcdir / "ontology" / "generated-local.ttl"
+
     logging.debug("Loading exemplars graph %r.", exemplar_filepath)
     exemplar_graph.parse(exemplar_filepath)
     logging.debug("len(exemplar_graph) = %d.", len(exemplar_graph))
+
+    logging.debug("Loading TBox graph %r.", ontology_filepath)
+    tbox_graph.parse(ontology_filepath)
+    logging.debug("len(tbox_graph) = %d.", len(tbox_graph))
+
+    logging.debug("Loading profile graph %r.", profile_filepath)
+    profile_graph.parse(profile_filepath)
+    logging.debug("len(profile_graph) = %d.", len(profile_graph))
 
     combined_graph = exemplar_graph + tbox_graph
 

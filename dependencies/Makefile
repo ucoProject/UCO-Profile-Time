@@ -30,7 +30,8 @@ $(uco_srcdir)/.venv.done.log:
 	  .venv.done.log
 
 $(uco_srcdir)/tests/uco_monolithic.ttl: \
-  $(uco_srcdir)/.venv.done.log
+  $(uco_srcdir)/.venv.done.log \
+  $(uco_srcdir)/ontology/uco/master/uco.ttl
 	$(MAKE) \
 	  --directory $(uco_srcdir)/tests \
 	  uco_monolithic.ttl

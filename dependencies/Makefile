@@ -23,10 +23,6 @@ uco_srcdir := CDO-Shapes-Time/dependencies/UCO
 all: \
   $(uco_srcdir)/tests/uco_monolithic.ttl
 
-# TODO: The check-supply-chain recipes should be written to descend into
-# each submodule tracking a CDO (/UCO, etc.) repository and run its
-# supply chain rule.  This recursive check is expected to be called most
-# typically by the top_srcdir recipe check-supply-chain-dependencies.
 .PHONY: \
   check-supply-chain \
   check-supply-chain-CDO-Shapes-Time
@@ -47,6 +43,10 @@ $(uco_srcdir)/tests/uco_monolithic.ttl: \
 check: \
   all
 
+# TODO: The check-supply-chain recipes should be written to descend into
+# each submodule tracking a CDO (/UCO, etc.) repository and run its
+# supply chain rule.  This recursive check is expected to be called most
+# typically by the top_srcdir recipe check-supply-chain-dependencies.
 check-supply-chain: \
   check-supply-chain-CDO-Shapes-Time
 
